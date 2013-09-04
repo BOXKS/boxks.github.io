@@ -1,0 +1,46 @@
+section.centerbox {
+	width: 760px;
+	padding: 0 4px;
+	text-align: justify;
+}
+article.center {
+	padding: 4em 0;
+}
+#list {
+	position: fixed;
+	height: 100%;
+	width: 240px;
+	top: 0;
+	right: -240px;
+	background: #eee;
+}
+#list-box{
+	overflow: hidden;
+	width: 100%;
+	max-height: 100%;
+}
+#list.right {
+	right: 0;
+}
+#list-button {
+	position: absolute;
+}
+#list-button {
+	top: 1em;
+	left: -40px;
+	width: 40px;
+	height: 40px;
+	background: url(../images/list.svg) #eee no-repeat center center;
+	background-size: 20px 20px;
+	border-radius: 7px 0 0 7px;
+	cursor: pointer;
+}
+@media(max-width:768px) {
+}
+/*iPhone*/
+@media(max-width:568px) {
+	/*header a[id*="button"], span[id*="button"] {margin: 10px;}*/
+}
+/*iPhone320*/
+@media(max-width:320px) {
+}
