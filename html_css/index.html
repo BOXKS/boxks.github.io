@@ -24,148 +24,150 @@
 			<div id="logo" class="absolute logo"><a href="../"><img src="../images/BOXKS_facunda.svg" alt="Boxks" width="32" height="32"> <sup>&#8482;</sup></a></div>
 		</section>
 	</header>
-	<!-- 目录开始 -->
-	<article id="list">
-		<div id="list-box" class="left100">
-			<h3 class="center">目录</h3>
-			<ol>
-				<li><a href="#foreword">前言</a></li>
-				<li><a href="#software">浏览器及编辑器</a></li>
-				<li><a href="#easypage">最简单的网页</a></li>
-				<li><a href=""></a></li>
-				<li><a href=""></a></li>
-			</ol>
-			<p class="fs12" style="padding: 0 10px;">如对本文内容有任何疑问、意见及建议<br>可联系 <a href="https://twitter.com/KaiyuanXie">@KaiyuanXie</a></p>
-		</div>
-		<div id="list-button"></div>
+	<article id="main" class="left100">
+		<!-- 目录开始 -->
+		<article id="list">
+			<div id="list-box" class="left100">
+				<h3 class="center">目录</h3>
+				<ol>
+					<li><a href="#foreword">前言</a></li>
+					<li><a href="#software">浏览器及编辑器</a></li>
+					<li><a href="#easypage">最简单的网页</a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+				</ol>
+				<p class="fs12" style="padding: 0 10px;">如对本文内容有任何疑问、意见及建议<br>可联系 <a href="https://twitter.com/KaiyuanXie">@KaiyuanXie</a></p>
+			</div>
+			<div id="list-button"></div>
+		</article>
+		<!-- 目录结束 -->
+		<article id="foreword" class="center">
+			<section class="centerbox">
+				<h2>前言</h2>
+				<p>在网上搜索了一圈，发现网上的很多制作网页的所谓教程是咸丰年前的内容，虽然依旧可用，但是对于很多初学者来说其真是不宜去理解，所以我就决定写一篇简单易懂的教程，用一些简单通俗易懂的文字介绍 HTML 和 CSS，去除很多「废话」（书面语）。</p>
+
+				<p>其实我这篇文章的最大期望是中学生甚至小学生都能看懂并学习了解如何制作一个简单的网页的。</p>
+
+				<p>我一直都觉得 HTML 和 CSS 应该是任何电脑课程都应该教的计算机基础知识！因为在网络上，无论你是写博客还是写评论都是需要使用一定量的 HTML 作为编写的，你要分别标记内容和设置基本样式需要使用到的知识，而 CSS 是控制网页排版、样式等，也就是说 HTML 和 CSS 就是网页上的写作基础知识，如同你写作文之前除了学会写字还需要学会什么是分段，什么是标点符号一样。</p>
+
+				<P>但是实际上很多编写教学书籍的都......你们懂的。</p>
+
+				<p>在开始学习制作一个网页之前，你必须有一定的电脑计算机基本操作知识，你要懂得如何在网上下载东西和怎样在电脑上安装软件等。</p>
+
+				<p>那么让我们来学习如何制作一个简单的网页吧！</p>
+			</section>
+		</article>
+		<article id="software" class="center">
+			<section class="centerbox">
+				<h2>准备工作</h2>
+
+				<p>开始学习之前必须确保你电脑上的网页浏览器不能太落后！</p>
+
+				<h3>什么是网页浏览器？</h3>
+
+				<p>网页浏览器就是你们上网浏览网页时候使用的软件。</p>
+
+				<p><a href="http://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%99%A8">维基百科</a>的介绍</p>
+
+				<blockquote><p>网页浏览器（Browser），是个显示网站服务器或文件系统内的文件，并让用户与此些文件交互的一种应用软件。它用来显示在万维网或局域网等内的文字、图像及其他信息。这些文字或图像，可以是连接其他网址的超链接，用户可迅速及轻易地浏览各种信息。大部分网页为HTML格式，有些网页需特定浏览器才能正确显示。</p></blockquote>
+
+				<h3>那么我们要怎么确保你的浏览器不落后呢？</h3>
+
+				<p>只要你的软件不是下图其中一个就可以了!</p>
+
+				<p class="center"><img src="images/ielogos.png" alt="IE LOGO"/></p>
+
+				<p>要是不幸你用的浏览器是上图其中一个怎么办？</p>
+
+				<p>你只需要下载安装下面三款浏览器软件中其中一款就可以了！</p>
+
+				<ul class="center list-no-style center left100" style="margin: 2em 0;">
+					<li class="centerbox sup" data-text="推荐安装" style="margin: 0 .7em;"><a href="https://www.google.com/intl/cn/chrome/browser/" ><img src="https://uatebq.blu.livefilestore.com/y2pEbD4VIrMVxrivDncCMrjYECy141URhFrxdTL-K1798B0a1gTdxP_y_6_clD_wks1AAnl9Biu_VdwzGeAdGA_BmzFuP8FKV-iJEMSFltQ-pI/chrome_64.png" alt="Chrome" ><br>Chrome</a></li>
+					<li class="centerbox" style="margin: 0 .7em;"><a href="http://www.mozilla.org/en-US/firefox/all/#zh-CN" ><img src="https://uatebq.blu.livefilestore.com/y2pj8AGt9-uLl6hfaEkC9rZLNwdeEutWqGTVHNRqPzRvviZCS9JqOi7ECpGUJCXvRvo_ngDSo9G32AcDhpEkAYGlNAdFLjWJx-d9aoFMVZ9VB0/firefox_64.png" alt="Firefox" ><br>Firefox</a></li>
+					<li class="centerbox" style="margin: 0 .7em;"><a href="http://www.opera.com/" ><img src="https://uatebq.blu.livefilestore.com/y2pDoinVEy6wIXP4_WWOwg0TA8ypr0RZMi3swIVvmVDZtU_XkTn8OLQIPMGrpV6z1aMUZgDxKhBdNYpvOQJAkz6ZkeTrU9jGtWIqBIob_ac98o/opera_64.png" alt="Opera" ><br>Opera</a></li>
+				</ul>
+				<p>打开对应的网页，点击下载（Download）即可下载浏览器安装程序。安装完成之后会弹出提示你是否将改浏览器设置为默认浏览器，这时候只要点击「是」即可。</p>
+
+				<h3>为什么要安装这些浏览器呢？</h3>
+
+				<p>因为只有新的浏览器才能标准的显示网页内容！落后的浏览器并不能正确的显示网页内容！</p>
+
+				<h3>编辑软件</h3>
+
+				<p>开始学习之前我们要安装一个方便使用的编辑器，这样才能有效的制作！
+				推荐安装 <a href="http://www.sublimetext.com/" class="sup" data-text="跨平台编辑器">Sublime Text</a>，这是一个强大的代码编辑器，特别对于刚开始学习的朋友更加容易上手使用，而且无时间限制的试用，不过当你保存次数达到一定次数的时候会弹出一个购买提示窗口。</p>
+
+				<p>和其他软件一样，只要在网页中下载好双击打开安装然后不断下一步（NEXT）就可以了。Sublime Text 的<a href="http://www.sublimetext.com/3">下载页面</a>是列出了苹果电脑<sup class="sup" data-text="OS X">1</sup>、普通 PC<sup class="sup" data-text="Windows">2</sup> 和 Linux<sup class="sup" data-text="目前提供的是 Ubuntu 版本">3</sup> 三种电脑系统的软件版本下载连接，你只要选择你所使用的系统<sup class="sup" data-text="一般大家所使用的电脑都是安装 Windows 的 PC 电脑">4</sup>对应连接下载即可。</p>
+
+				<p class="center"><img src="images/Sublime_Text_windows1.png" alt="" width="700"></p>
+
+				<p>打开浏览器我们先在顶部菜单拦中选择 <code>Preferences</code> -> <code>Settings - User</code> 打开软件设置文件，将下面的代码替换进去然后按 <kbd>Ctrl</kbd>+<kbd>S</kbd> 保存。也就是将下面的代码覆盖了这只文件里面的内容。</p>
+
+	<pre>{
+	    "draw_centered": true,
+	    "font_face": "Courier New",
+	    "word_wrap": true
+	}</pre>
+				<p><code>"draw_centered": true</code> 設置內容居中，代碼寬度較少時候能將視線集中到屏幕中間不用斜看左邊。<br>
+				<code>"font_face": "Courier New"</code> 將字體設置成 Courier New 是因為這款是相當好的襯線體。<br>
+				<code>"word_wrap": true</code> 自動換行，免去內容超寬時候需要拖動操作范偉。</p>
+
+				<p>关于 Sublime Text 的更多使用说明可以浏览 <a href="http://blog.chh.tw/about/">@ChingHanHo</a> 制作的 <a href="http://docs.sublimetext.tw/" class="sup" data-text="繁体中文">Sublime Text 手冊</a>。</p>
+			</section>
+		</article>
+		<article id="easypage" class="center">
+			<section class="centerbox">
+				<h2>最简单的网页</h2>
+
+				<p>开始制作，首先把鼠标移动到 Sublime Text 右下角 "Plain Text" 点击展开菜单，然后选择 "HTML" 把文件格式设置成网页格式。将下面的代码复制到编辑器中，然后按 <kbd>Ctrl</kbd>+<kbd>S</kbd> 保存一个 ".html" 格式的文件到任意一个文件夹中。</p>
+
+	<pre>&lt;!DOCTYPE HTML&gt;
+	&lt;<span style="color:red;">html</span> <span style="color:#98de24;">lang</span>=<span style="color: #e5d037;">&quot;zh&quot;</span>&gt;
+	&lt;<span style="color:red;">head</span>&gt;
+	    &lt;<span style="color:red;">meta</span> <span style="color:#98de24;">charset</span>=<span style="color: #e5d037;">&quot;UTF-8&quot;</span>&gt;
+	    &lt;<span style="color:red;">title</span>&gt;一个简单的网页&lt;&#47;<span style="color:red;">title</span>&gt;
+	&lt;&#47;<span style="color:red;">head</span>&gt;
+	&lt;<span style="color:red;">body</span>&gt;
+	    我们都来做个简单的网页吧！
+	&lt;&#47;<span style="color:red;">body</span>&gt;
+	&lt;&#47;<span style="color:red;">html</span>&gt;</pre>
+
+
+				<p>保存后将文件拖放到上面安装的浏览器中或者双击打开，这样就完成了一个最简单的网页了。</p>
+				<p>上面我们已经制作了一个最简单的页面了，看到这些代码你是否已经知道网页的标题和网页窗口中的内容是哪里了呢？</p>
+			</section>
+		</article>
+		<article class="center">
+			<section class="centerbox">
+				<h2>HTML 标签和语法（规范）</h2>
+				<p>在我们解析上面代码之前先来说一下 HTML 的标签和语法吧！</p>
+
+				<h3>标签</h3>
+				<p>标记网页中元素的一串文字和符号。正式的解释可以参考 <a href="http://zh.wikipedia.org/wiki/HTML%E6%A0%87%E7%AD%BE">维基百科</a>。网页中的内容就是通过各种标签组成不同的元素，浏览器就会按照标签的特性给不同标签中的内容显示不同的效果。</p>
+				<p>不同的标签有不同的特性，就像我们班级里面有班长、副班长、学习委员等而每组也有组长，不同的职位会要负责对应不同的任务。</p>
+
+	<pre>&lt;<span style="color:red;">div</span>&gt;我是标签里面的内容&lt;&#47;<span style="color:red;">div</span>&gt;
+	&lt;<span style="color:red;">a</span> <span style="color:#98de24;">href</span>=<span style="color: #e5d037;">&quot;&#47;&#47;www.google.com&quot;</span>&gt;Google&lt;&#47;<span style="color:red;">a</span>&gt;
+	&lt;<span style="color:red;">input</span> <span style="color:#98de24;">type</span>=<span style="color: #e5d037;">&quot;text&quot;</span>  <span style="color:#98de24;">value</span>=<span style="color: #e5d037;">&quot;我是显示的内容&quot;</span>&gt;</pre>
+
+				<p>上面代码第一行是简单的 HTML 标签，他是由英文尖括号（不能使用中文尖括号！！！）括起一个单词或字母而组成的句子，并且有开头和结尾部分，开头部分是直接使用尖括号把单词括起 <code>&lt;<span style="color:red;">div</span>&gt;</code>，结尾部分是在尖括号中的单词前面加上一个斜线 <code>&lt;&#47;<span style="color:red;">div</span>&gt;</code>，两个尖括号之间包含的文字则是显示到网页上的文字「我是标签里面的内容」。</p>
+				<h3>语法</h3>
+				<p>语法就是代码中的写作规范，任何计算机使用的代码都有自己的写作规范来告诉计算机你写的代码是什么意思。</p>
+			</section>
+		</article>
+		<article class="center">
+			<section class="centerbox">
+			</section>
+		</article>
+		<footer>
+			<section class="centerbox">
+				<p>本学习内容基于 <a href="http://www.gnu.org/licenses/agpl.html" class="sup" data-text="将本学习内容编辑以及再发布时候必须同时提供所有原文件！">AGPL</a> 协议发布，欢迎转载，但请保留署名 <a href="http://Boxks.com">Kaiyuan Xie</a><br>	
+				顶部封面背景图版权归 <a href="http://www.flickr.com/photos/rayche1989/9234775789">@rayche</a> 所有,任何商业使用都必须向其购买使用权！<br>
+				LOGO字体：<a href="http://www.behance.net/gallery/Facunda-Free-Font/5859989">Facunda</a><br> 
+				网页英文字体：<a href="http://www.exljbris.com/museoslab.html">Museo Slab</a> <br>
+				Icons: <a href="http://betterfrontend.com/">Betterfrontend</a></p>
+			</section>
+		</footer>
 	</article>
-	<!-- 目录结束 -->
-	<article id="foreword" class="center">
-		<section class="centerbox">
-			<h2>前言</h2>
-			<p>在网上搜索了一圈，发现网上的很多制作网页的所谓教程是咸丰年前的内容，虽然依旧可用，但是对于很多初学者来说其真是不宜去理解，所以我就决定写一篇简单易懂的教程，用一些简单通俗易懂的文字介绍 HTML 和 CSS，去除很多「废话」（书面语）。</p>
-
-			<p>其实我这篇文章的最大期望是中学生甚至小学生都能看懂并学习了解如何制作一个简单的网页的。</p>
-
-			<p>我一直都觉得 HTML 和 CSS 应该是任何电脑课程都应该教的计算机基础知识！因为在网络上，无论你是写博客还是写评论都是需要使用一定量的 HTML 作为编写的，你要分别标记内容和设置基本样式需要使用到的知识，而 CSS 是控制网页排版、样式等，也就是说 HTML 和 CSS 就是网页上的写作基础知识，如同你写作文之前除了学会写字还需要学会什么是分段，什么是标点符号一样。</p>
-
-			<P>但是实际上很多编写教学书籍的都......你们懂的。</p>
-
-			<p>在开始学习制作一个网页之前，你必须有一定的电脑计算机基本操作知识，你要懂得如何在网上下载东西和怎样在电脑上安装软件等。</p>
-
-			<p>那么让我们来学习如何制作一个简单的网页吧！</p>
-		</section>
-	</article>
-	<article id="software" class="center">
-		<section class="centerbox">
-			<h2>准备工作</h2>
-
-			<p>开始学习之前必须确保你电脑上的网页浏览器不能太落后！</p>
-
-			<h3>什么是网页浏览器？</h3>
-
-			<p>网页浏览器就是你们上网浏览网页时候使用的软件。</p>
-
-			<p><a href="http://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E5%99%A8">维基百科</a>的介绍</p>
-
-			<blockquote><p>网页浏览器（Browser），是个显示网站服务器或文件系统内的文件，并让用户与此些文件交互的一种应用软件。它用来显示在万维网或局域网等内的文字、图像及其他信息。这些文字或图像，可以是连接其他网址的超链接，用户可迅速及轻易地浏览各种信息。大部分网页为HTML格式，有些网页需特定浏览器才能正确显示。</p></blockquote>
-
-			<h3>那么我们要怎么确保你的浏览器不落后呢？</h3>
-
-			<p>只要你的软件不是下图其中一个就可以了!</p>
-
-			<p class="center"><img src="images/ielogos.png" alt="IE LOGO"/></p>
-
-			<p>要是不幸你用的浏览器是上图其中一个怎么办？</p>
-
-			<p>你只需要下载安装下面三款浏览器软件中其中一款就可以了！</p>
-
-			<ul class="center list-no-style center left100" style="margin: 2em 0;">
-				<li class="centerbox sup" data-text="推荐安装" style="margin: 0 .7em;"><a href="https://www.google.com/intl/cn/chrome/browser/" ><img src="https://uatebq.blu.livefilestore.com/y2pEbD4VIrMVxrivDncCMrjYECy141URhFrxdTL-K1798B0a1gTdxP_y_6_clD_wks1AAnl9Biu_VdwzGeAdGA_BmzFuP8FKV-iJEMSFltQ-pI/chrome_64.png" alt="Chrome" ><br>Chrome</a></li>
-				<li class="centerbox" style="margin: 0 .7em;"><a href="http://www.mozilla.org/en-US/firefox/all/#zh-CN" ><img src="https://uatebq.blu.livefilestore.com/y2pj8AGt9-uLl6hfaEkC9rZLNwdeEutWqGTVHNRqPzRvviZCS9JqOi7ECpGUJCXvRvo_ngDSo9G32AcDhpEkAYGlNAdFLjWJx-d9aoFMVZ9VB0/firefox_64.png" alt="Firefox" ><br>Firefox</a></li>
-				<li class="centerbox" style="margin: 0 .7em;"><a href="http://www.opera.com/" ><img src="https://uatebq.blu.livefilestore.com/y2pDoinVEy6wIXP4_WWOwg0TA8ypr0RZMi3swIVvmVDZtU_XkTn8OLQIPMGrpV6z1aMUZgDxKhBdNYpvOQJAkz6ZkeTrU9jGtWIqBIob_ac98o/opera_64.png" alt="Opera" ><br>Opera</a></li>
-			</ul>
-			<p>打开对应的网页，点击下载（Download）即可下载浏览器安装程序。安装完成之后会弹出提示你是否将改浏览器设置为默认浏览器，这时候只要点击「是」即可。</p>
-
-			<h3>为什么要安装这些浏览器呢？</h3>
-
-			<p>因为只有新的浏览器才能标准的显示网页内容！落后的浏览器并不能正确的显示网页内容！</p>
-
-			<h3>编辑软件</h3>
-
-			<p>开始学习之前我们要安装一个方便使用的编辑器，这样才能有效的制作！
-			推荐安装 <a href="http://www.sublimetext.com/" class="sup" data-text="跨平台编辑器">Sublime Text</a>，这是一个强大的代码编辑器，特别对于刚开始学习的朋友更加容易上手使用，而且无时间限制的试用，不过当你保存次数达到一定次数的时候会弹出一个购买提示窗口。</p>
-
-			<p>和其他软件一样，只要在网页中下载好双击打开安装然后不断下一步（NEXT）就可以了。Sublime Text 的<a href="http://www.sublimetext.com/3">下载页面</a>是列出了苹果电脑<sup class="sup" data-text="OS X">1</sup>、普通 PC<sup class="sup" data-text="Windows">2</sup> 和 Linux<sup class="sup" data-text="目前提供的是 Ubuntu 版本">3</sup> 三种电脑系统的软件版本下载连接，你只要选择你所使用的系统<sup class="sup" data-text="一般大家所使用的电脑都是安装 Windows 的 PC 电脑">4</sup>对应连接下载即可。</p>
-
-			<p class="center"><img src="images/Sublime_Text_windows1.png" alt="" width="700"></p>
-
-			<p>打开浏览器我们先在顶部菜单拦中选择 <code>Preferences</code> -> <code>Settings - User</code> 打开软件设置文件，将下面的代码替换进去然后按 <kbd>Ctrl</kbd>+<kbd>S</kbd> 保存。也就是将下面的代码覆盖了这只文件里面的内容。</p>
-
-<pre>{
-    "draw_centered": true,
-    "font_face": "Courier New",
-    "word_wrap": true
-}</pre>
-			<p><code>"draw_centered": true</code> 設置內容居中，代碼寬度較少時候能將視線集中到屏幕中間不用斜看左邊。<br>
-			<code>"font_face": "Courier New"</code> 將字體設置成 Courier New 是因為這款是相當好的襯線體。<br>
-			<code>"word_wrap": true</code> 自動換行，免去內容超寬時候需要拖動操作范偉。</p>
-
-			<p>关于 Sublime Text 的更多使用说明可以浏览 <a href="http://blog.chh.tw/about/">@ChingHanHo</a> 制作的 <a href="http://docs.sublimetext.tw/" class="sup" data-text="繁体中文">Sublime Text 手冊</a>。</p>
-		</section>
-	</article>
-	<article id="easypage" class="center">
-		<section class="centerbox">
-			<h2>最简单的网页</h2>
-
-			<p>开始制作，首先把鼠标移动到 Sublime Text 右下角 "Plain Text" 点击展开菜单，然后选择 "HTML" 把文件格式设置成网页格式。将下面的代码复制到编辑器中，然后按 <kbd>Ctrl</kbd>+<kbd>S</kbd> 保存一个 ".html" 格式的文件到任意一个文件夹中。</p>
-
-<pre>&lt;!DOCTYPE HTML&gt;
-&lt;<span style="color:red;">html</span> <span style="color:#98de24;">lang</span>=<span style="color: #e5d037;">&quot;zh&quot;</span>&gt;
-&lt;<span style="color:red;">head</span>&gt;
-    &lt;<span style="color:red;">meta</span> <span style="color:#98de24;">charset</span>=<span style="color: #e5d037;">&quot;UTF-8&quot;</span>&gt;
-    &lt;<span style="color:red;">title</span>&gt;一个简单的网页&lt;&#47;<span style="color:red;">title</span>&gt;
-&lt;&#47;<span style="color:red;">head</span>&gt;
-&lt;<span style="color:red;">body</span>&gt;
-    我们都来做个简单的网页吧！
-&lt;&#47;<span style="color:red;">body</span>&gt;
-&lt;&#47;<span style="color:red;">html</span>&gt;</pre>
-
-
-			<p>保存后将文件拖放到上面安装的浏览器中或者双击打开，这样就完成了一个最简单的网页了。</p>
-			<p>上面我们已经制作了一个最简单的页面了，看到这些代码你是否已经知道网页的标题和网页窗口中的内容是哪里了呢？</p>
-		</section>
-	</article>
-	<article class="center">
-		<section class="centerbox">
-			<h2>HTML 标签和语法（规范）</h2>
-			<p>在我们解析上面代码之前先来说一下 HTML 的标签和语法吧！</p>
-
-			<h3>标签</h3>
-			<p>标记网页中元素的一串文字和符号。正式的解释可以参考 <a href="http://zh.wikipedia.org/wiki/HTML%E6%A0%87%E7%AD%BE">维基百科</a>。网页中的内容就是通过各种标签组成不同的元素，浏览器就会按照标签的特性给不同标签中的内容显示不同的效果。</p>
-			<p>不同的标签有不同的特性，就像我们班级里面有班长、副班长、学习委员等而每组也有组长，不同的职位会要负责对应不同的任务。</p>
-
-<pre>&lt;<span style="color:red;">div</span>&gt;我是标签里面的内容&lt;&#47;<span style="color:red;">div</span>&gt;
-&lt;<span style="color:red;">a</span> <span style="color:#98de24;">href</span>=<span style="color: #e5d037;">&quot;&#47;&#47;www.google.com&quot;</span>&gt;Google&lt;&#47;<span style="color:red;">a</span>&gt;
-&lt;<span style="color:red;">input</span> <span style="color:#98de24;">type</span>=<span style="color: #e5d037;">&quot;text&quot;</span>  <span style="color:#98de24;">value</span>=<span style="color: #e5d037;">&quot;我是显示的内容&quot;</span>&gt;</pre>
-
-			<p>上面代码第一行是简单的 HTML 标签，他是由英文尖括号（不能使用中文尖括号！！！）括起一个单词或字母而组成的句子，并且有开头和结尾部分，开头部分是直接使用尖括号把单词括起 <code>&lt;<span style="color:red;">div</span>&gt;</code>，结尾部分是在尖括号中的单词前面加上一个斜线 <code>&lt;&#47;<span style="color:red;">div</span>&gt;</code>，两个尖括号之间包含的文字则是显示到网页上的文字「我是标签里面的内容」。</p>
-			<h3>语法</h3>
-			<p>语法就是代码中的写作规范，任何计算机使用的代码都有自己的写作规范来告诉计算机你写的代码是什么意思。</p>
-		</section>
-	</article>
-	<article class="center">
-		<section class="centerbox">
-		</section>
-	</article>
-	<footer>
-		<section class="centerbox">
-			<p>本学习内容基于 <a href="http://www.gnu.org/licenses/agpl.html" class="sup" data-text="将本学习内容编辑以及再发布时候必须同时提供所有原文件！">AGPL</a> 协议发布，欢迎转载，但请保留署名 <a href="http://Boxks.com">Kaiyuan Xie</a><br>	
-			顶部封面背景图版权归 <a href="http://www.flickr.com/photos/rayche1989/9234775789">@rayche</a> 所有，未经许可不得转载及使用！<br>
-			LOGO字体：<a href="http://www.behance.net/gallery/Facunda-Free-Font/5859989">Facunda</a><br> 
-			网页英文字体：<a href="http://www.exljbris.com/museoslab.html">Museo Slab</a> <br>
-			Icons: <a href="http://betterfrontend.com/">Betterfrontend</a></p>
-		</section>
-	</footer>
 </body>
 </html>
