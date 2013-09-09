@@ -172,7 +172,7 @@ section.centerbox {
 	float: none;
 	margin: 0 auto; 
 	width: 760px;
-	padding: 4px;
+	padding: 6em 4px;
 	text-align: justify;
 }
 nav .dropdown::after, #price::after {
@@ -182,11 +182,11 @@ nav .dropdown::after, #price::after {
   	display: inline-block;
   	text-decoration: inherit;
 }
-header .centerbox {text-align: center;padding: 20px 0;}
+header .centerbox {padding: 10em 0;}
 .logo-tm {
 	top: -.5em;
 	left: 50%;
-	margin-left: 140px;
+	margin-left: 110px;
 	font-weight: normal;
 	font-size: .5em;
 }
