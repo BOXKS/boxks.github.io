@@ -4,23 +4,19 @@ var PID = window.location.search;   //获取问号之后的部分
 var href = URL.substr(0,URL.lastIndexOf("/"));  //截取项目的目录
 var LID = PID.substr(1);    //截取问号
 var edition = "0_0_1";  //设置版本号（对应文件夹）
-var list = $.getJSON("list.json");
+// var list = $.getJSON("list.json");
 
 jQuery(document).ready(function($) {    
     //当页面框架载入完成后运行打括号内的代码
 
-    // 输出菜单
-    $.getJSON("list.json", function (list) {    
-        //载入 list.json
-        if (list[0]) {  
-            //如果载入的内容并非空白运行下面代码
-            for (i = 0; i < list.length; i++) { 
-                //设置始起的值是 0，每循环一次加1，当循环次数等于 list 中数组数量相同时候停止循环（因为 i 第一次为0，所以 i 最大值等于数组的数量减去1）
-                $('#list>#list-box>ol').append('<li><a data-lid="'+i+'" href="'+href+'?'+list[i].LoadID+'">'+list[i].title+'</a></li>');    //循环输出 li 菜单
-            };
+    // 输出菜单，对应 json 存放在 list.js 中，页面已经引用！
+    if (list[0]) {  
+        //如果载入的内容并非空白运行下面代码
+        for (i = 0; i < list.length; i++) { 
+            //设置始起的值是 0，每循环一次加1，当循环次数等于 list 中数组数量相同时候停止循环（因为 i 第一次为0，所以 i 最大值等于数组的数量减去1）
+            $('#list>#list-box>ol').append('<li><a id="'+list[i].LoadID+'" data-lid="'+i+'" href="'+href+'?'+list[i].LoadID+'">'+list[i].title+'</a></li>');    //循环输出 li 菜单
         };
-    });
-    // $('#test').html(list[0].title);
+    };
 
     function LoadData(LoadPage) {   
         //载入页面内容的函数
@@ -35,6 +31,7 @@ jQuery(document).ready(function($) {
             };
         };
     }
+    $('#'+LID).addClass('current-cat');
 
     // 判断 url 载入内容
     if (PID) {
@@ -56,6 +53,8 @@ jQuery(document).ready(function($) {
     	var LoadID = PageID.substr(1); //截取前面的问号
         var listID = $(this).data('lid');
     	title = list[listID].title;  //获取上面 json 对应的标题
+        $('#list-box>ol>li>a').removeClass('current-cat');
+        $(this).addClass('current-cat');
     	if (PageID) {  
             //如果 PageID 存在运行下面的内容
             if (LoadID!=LID) {  

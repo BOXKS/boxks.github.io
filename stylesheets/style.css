@@ -214,6 +214,20 @@ header .centerbox {padding: 10em 0;}
 #list-box li {
 	margin-bottom: 14px;
 }
+#list-box li .current-cat {
+	color: #2C769E;
+	position: relative;
+}
+#list-box li .current-cat::before {
+	content: "";
+	width: 0;
+	height: 0;
+	top: 50%;
+	margin-top: -10px;
+	left: -40px;
+	border: 10px solid #fff;
+	border-color: transparent transparent transparent #fff;
+}
 #list.right {
 	right: 0;
 }
