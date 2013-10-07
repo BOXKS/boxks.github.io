@@ -18,11 +18,27 @@ jQuery(document).ready(function($) {
         };
     };
 
+    $(document).bind("ajaxSend", function(){
+        $("#loadingbar").addClass('op1');
+    }).bind("ajaxComplete", function(){
+        $("#loadingbar").width('100%');
+        $("#loadingbar").removeClass('op1');
+    });
+
     function LoadData(LoadPage) {   
         //载入页面内容的函数
-        $("#Main>.centerbox").load(edition+"/"+LoadPage+".html");   //载入文件
+        $.ajax({
+            url: edition+"/"+LoadPage+".html",
+            cache: false,
+            success: function(page){
+                $("#Main>.centerbox").html(page);
+            }
+        });
         LID = LoadPage;   //更新固定值
         $("html,body").animate({scrollTop: $("#Main").offset().top}, 500);  //跳转到内容顶部
+
+        $('#list-box>ol>li>a').removeClass('current-cat');  // 清除目录的状态
+        $('#'+LID).addClass('current-cat'); //给当前目录中的当前条目添加状态
 
         for (i = 0; i < list.length; i++) {
             if (list[i].LoadID===LoadPage) {
@@ -31,14 +47,18 @@ jQuery(document).ready(function($) {
             };
         };
     }
-    $('#'+LID).addClass('current-cat');
+    function HomePage () {
+        $("#Main>.centerbox").load(edition+"/foreword.html");
+        LID = "foreword";   //设置默认页面状态
+        $('#list-box>ol>li>a').removeClass('current-cat');
+        $('#'+LID).addClass('current-cat');
+    }
 
     // 判断 url 载入内容
     if (PID) {
     	LoadData(LID);
     } else{
-    	$("#Main>.centerbox").load(edition+"/foreword.html");
-        LID = "foreword";   //设置默认页面状态
+        HomePage ();
     };
 
     // 菜单操作
@@ -53,8 +73,6 @@ jQuery(document).ready(function($) {
     	var LoadID = PageID.substr(1); //截取前面的问号
         var listID = $(this).data('lid');
     	title = list[listID].title;  //获取上面 json 对应的标题
-        $('#list-box>ol>li>a').removeClass('current-cat');
-        $(this).addClass('current-cat');
     	if (PageID) {  
             //如果 PageID 存在运行下面的内容
             if (LoadID!=LID) {  
@@ -75,7 +93,7 @@ jQuery(document).ready(function($) {
             if (PID) {
                 LoadData(LID);
             } else{
-                $("#Main>.centerbox").load(edition+"/foreword.html");
+                HomePage ();
             };
 		}
 	}, false);				

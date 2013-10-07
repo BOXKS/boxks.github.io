@@ -166,7 +166,16 @@ header, footer, .center, #logo, #Navbar, #Navbar>ul>li, .more-link, .page_navi {
 .border-t-d {
 	border-top: 1px dotted #ddd;
 }
-a, input, select, blockquote, .typekit-badge, #backTop, #SearchBox, .gsc-cursor-page, #list, .trs, span.sup  {
+#loadingbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 2px;
+	background-color: #d0e4f6;
+	box-shadow: 0 0 10px rgba(208, 228, 246, 1);
+	opacity: 0;
+}
+a, input, select, blockquote, .typekit-badge, #backTop, #SearchBox, .gsc-cursor-page, #list, .trs, span.sup, #loadingbar  {
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	-o-transition: all .3s;
@@ -201,7 +210,7 @@ header .centerbox {padding: 10em 0;}
 	width: 240px;
 	top: 0;
 	right: -240px;
-	background: #eee;
+	background: #f3f4f6;
 }
 #list-box{
 	overflow: hidden;
@@ -239,7 +248,7 @@ header .centerbox {padding: 10em 0;}
 	left: -40px;
 	width: 40px;
 	height: 40px;
-	background: url(../images/list.svg) #eee no-repeat center center;
+	background: url(../images/list.svg) #f3f4f6 no-repeat center center;
 	background-size: 20px 20px;
 	border-radius: 7px 0 0 7px;
 	cursor: pointer;
