@@ -217,6 +217,7 @@ header .centerbox {padding: 10em 0;}
 	top: 0;
 	right: -240px;
 	background: #f3f4f6;
+	z-index: 999;
 }
 #list-box{
 	overflow: hidden;
@@ -335,7 +336,7 @@ header .centerbox {padding: 10em 0;}
 	transition: height .2s ease-in .1s;
 }
 #Main>.centerbox .warn {
-	padding: 2em 0;
+	padding: 2em .2em;
 	margin: 1em 0;
 	border: 1px solid #f0b435;
 	border-radius: 17px;
@@ -355,7 +356,7 @@ header .centerbox {padding: 10em 0;}
 	width: 180px;
 	height: 180px;
 	display: inline-block;
-	z-index: 99;
+	z-index: 2;
 }
 #Main>.centerbox .warn .e-mark::before {
 	content: "";

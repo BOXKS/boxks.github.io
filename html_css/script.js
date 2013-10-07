@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
         //如果载入的内容并非空白运行下面代码
         for (i = 0; i < list.length; i++) { 
             //设置始起的值是 0，每循环一次加1，当循环次数等于 list 中数组数量相同时候停止循环（因为 i 第一次为0，所以 i 最大值等于数组的数量减去1）
-            $('#list>#list-box>ol').append('<li><a id="'+list[i].LoadID+'" data-lid="'+i+'" href="'+href+'?'+list[i].LoadID+'">'+list[i].title+'</a></li>');    //循环输出 li 菜单
+            $('#list>#list-box>ol').append('<li><a id="'+list[i].LoadID+'" data-lid="'+i+'" href="'+href+'/?'+list[i].LoadID+'">'+list[i].title+'</a></li>');    //循环输出 li 菜单
         };
     };
 
@@ -43,7 +43,7 @@ jQuery(document).ready(function($) {
                 $("#loadingbar").addClass('warn');
                 setTimeout("$('#loadingbar').removeClass('op1')",1300);
                 $('title').html('Error - 制作一个简单的网页');
-                $("#Main>.centerbox").html('<div class="warn center"><div class="e-mark"></div><br />網絡連接失敗,無法載入內容！</div>');
+                $("#Main>.centerbox").html('<div class="warn center"><div class="e-mark"></div><br />網絡連接失敗，無法載入內容！</div>');
             }
         });
         LID = LoadPage;   //更新固定值
