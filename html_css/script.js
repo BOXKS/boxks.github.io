@@ -18,20 +18,32 @@ jQuery(document).ready(function($) {
         };
     };
 
-    $(document).bind("ajaxSend", function(){
-        $("#loadingbar").addClass('op1');
-    }).bind("ajaxComplete", function(){
-        $("#loadingbar").width('100%');
-        $("#loadingbar").removeClass('op1');
-    });
-
     function LoadData(LoadPage) {   
         //载入页面内容的函数
         $.ajax({
-            url: edition+"/"+LoadPage+".html",
+            url: edition+"/"+LoadPage+".html",  //设置载入文件路径
             cache: false,
+            beforeSend: function(){
+                //发送 Ajax 之前运行
+                $("#loadingbar").width(0);
+                $("#loadingbar").addClass('op1');
+                $('#loadingbar').removeClass('warn');
+            },
             success: function(page){
+                //接受返回数据成功之后运行
+                $("#loadingbar").animate({
+                    width: '100%'
+                }, "2000");
+                setTimeout("$('#loadingbar').removeClass('op1')",1300);
                 $("#Main>.centerbox").html(page);
+            },
+            error: function(){
+                //载入内容失败时候运行
+                $("#loadingbar").width('100%');
+                $("#loadingbar").addClass('warn');
+                setTimeout("$('#loadingbar').removeClass('op1')",1300);
+                $('title').html('Error - 制作一个简单的网页');
+                $("#Main>.centerbox").html('<div class="warn center"><div class="e-mark"></div><br />網絡連接失敗,無法載入內容！</div>');
             }
         });
         LID = LoadPage;   //更新固定值

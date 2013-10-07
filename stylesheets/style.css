@@ -170,12 +170,18 @@ header, footer, .center, #logo, #Navbar, #Navbar>ul>li, .more-link, .page_navi {
 	position: fixed;
 	top: 0;
 	left: 0;
-	height: 2px;
+	height: 3px;
+	width: 0;
 	background-color: #d0e4f6;
-	box-shadow: 0 0 10px rgba(208, 228, 246, 1);
+	box-shadow: 0 0 12px rgba(208, 228, 246, 1);
 	opacity: 0;
+	transition: opacity .2s ease-in .1s;
 }
-a, input, select, blockquote, .typekit-badge, #backTop, #SearchBox, .gsc-cursor-page, #list, .trs, span.sup, #loadingbar  {
+#loadingbar.warn {
+	box-shadow: 0 0 12px rgba(240, 168, 40, 1.000) !important;
+	background-color: #f0a828;
+}
+a, input, select, blockquote, .typekit-badge, #backTop, #SearchBox, .gsc-cursor-page, #list, .trs, span.sup  {
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	-o-transition: all .3s;
@@ -318,12 +324,49 @@ header .centerbox {padding: 10em 0;}
 }
 
 #Main {
-	min-height: 640px;
+	min-height: 540px;
 	padding: 1em 0;
 	margin: 7em 0;
+	transition: height .2s ease-in .1s;
+
 }
 #Main>.centerbox {
 	padding: 0 4px;
+	transition: height .2s ease-in .1s;
+}
+#Main>.centerbox .warn {
+	padding: 2em 0;
+	margin: 1em 0;
+	border: 1px solid #f0b435;
+	border-radius: 17px;
+	background: url(../images/sargaBlanco.svg) repeat-x left 5%, url(../images/sargaBlanco.svg) repeat-x left 95%;
+	background-color: #f8bb37;
+	background-size: 5%;
+	color: #fff;
+	font-size: 2.6em;
+	font-weight: normal;
+	line-height: 1.777em;
+	box-shadow: 0 0 0 5px rgba(248, 187, 55, .2), 0 2px 7px rgba(0,0,0,.2), inset 0 0 2px rgba(255,255,255,0.7), inset 0 -10px 30px rgba(0,0,0,0.01) !important;
+}
+#Main>.centerbox .warn .e-mark {
+	position: relative;
+	background: url(../images/error.svg) no-repeat center center;
+	background-size: contain;
+	width: 180px;
+	height: 180px;
+	display: inline-block;
+	z-index: 99;
+}
+#Main>.centerbox .warn .e-mark::before {
+	content: "";
+	z-index: -1;
+	width: 120px;
+	height: 4px;
+	bottom: 10px;
+	left: 50%;
+	margin-left: -60px;
+	border: 70px;
+	box-shadow: 0 20px 30px rgba(0,0,0,0.3);
 }
 /*html css*/
 #html-css {
