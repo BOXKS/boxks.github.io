@@ -8,6 +8,8 @@ var edition = "0_0_1";  //设置版本号（对应文件夹）
 
 jQuery(document).ready(function($) {    
     //当页面框架载入完成后运行打括号内的代码
+    var MainBox = $('#Main>.centerbox');    // 设置主要内容的容器
+    var loadingbar = $("#loadingbar");  //进度条
 
     // 输出菜单，对应 json 存放在 list.js 中，页面已经引用！
     if (list[0]) {  
@@ -18,6 +20,10 @@ jQuery(document).ready(function($) {
         };
     };
 
+    function errorText () {
+        MainBox.html('<div class="warn center"><div class="e-mark"></div><br />網絡連接失敗，無法載入內容！</div>');
+    }
+
     function LoadData(LoadPage) {   
         //载入页面内容的函数
         $.ajax({
@@ -25,27 +31,43 @@ jQuery(document).ready(function($) {
             cache: false,
             beforeSend: function(){
                 //发送 Ajax 之前运行
-                $("#loadingbar").width(0);
-                $("#loadingbar").addClass('op1');
-                $('#loadingbar').removeClass('warn');
+                loadingbar.width(0);
+                loadingbar.addClass('op1');
+                loadingbar.animate({
+                    width: '30%'
+                }, "2000");
+                loadingbar.removeClass('warn');
             },
             success: function(page){
                 //接受返回数据成功之后运行
-                $("#loadingbar").animate({
+                loadingbar.animate({
                     width: '100%'
                 }, "2000");
-                setTimeout("$('#loadingbar').removeClass('op1')",1300);
-                $("#Main>.centerbox").html(page);
+                MainBox.css("opacity","0");   //替换内容前先隐藏容器
+                setTimeout(function(){
+                    //延时执行内容替换和显示
+                    $('#loadingbar').removeClass('op1')
+                    MainBox.html(page);
+                    MainBox.css('opacity','1')
+                },700);
             },
             error: function(){
                 //载入内容失败时候运行
-                $("#loadingbar").width('100%');
-                $("#loadingbar").addClass('warn');
-                setTimeout("$('#loadingbar').removeClass('op1')",1300);
-                $('title').html('Error - 制作一个简单的网页');
-                $("#Main>.centerbox").html('<div class="warn center"><div class="e-mark"></div><br />網絡連接失敗，無法載入內容！</div>');
+                loadingbar.animate({
+                    width: '100%'
+                }, "2000");
+                loadingbar.addClass('warn');
+                MainBox.css("opacity","0");
+                setTimeout(function(){
+                    //延时执行内容替换和显示
+                    loadingbar.removeClass('op1')
+                    errorText (); 
+                    MainBox.css('opacity','1')
+                },700);
             }
         });
+
+
         LID = LoadPage;   //更新固定值
         $("html,body").animate({scrollTop: $("#Main").offset().top}, 500);  //跳转到内容顶部
 
@@ -59,19 +81,20 @@ jQuery(document).ready(function($) {
             };
         };
     }
+
     function HomePage () {
-        $("#Main>.centerbox").load(edition+"/foreword.html");
+        MainBox.load(edition+"/foreword.html");
         LID = "foreword";   //设置默认页面状态
-        $('#list-box>ol>li>a').removeClass('current-cat');
-        $('#'+LID).addClass('current-cat');
+        $('#list-box>ol>li>a').removeClass('current-cat');  //清除其他页面状态。
+        $('#'+LID).addClass('current-cat'); //添加当前页面状态。
     }
 
-    // 判断 url 载入内容
-    if (PID) {
-    	LoadData(LID);
-    } else{
-        HomePage ();
-    };
+    // // 判断 url 载入内容，有下面的 window.addEventListener 就不需要这里了！
+    // if (PID) {
+    // 	LoadData(LID);
+    // } else{
+    //     HomePage ();
+    // };
 
     // 菜单操作
     $('#list').on("click", "#list-button", function() { 

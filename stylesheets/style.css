@@ -160,8 +160,14 @@ header, footer, .center, #logo, #Navbar, #Navbar>ul>li, .more-link, .page_navi {
 .border-d {
 	border: 1px dashed #aaa;
 }
+.border-b-da {
+	border-bottom: 1px dashed #ddd;
+}
 .border-b-d {
 	border-bottom: 1px dotted #ddd;
+}
+.border-t-da {
+	border-top: 1px dashed #ddd;
 }
 .border-t-d {
 	border-top: 1px dotted #ddd;
@@ -170,12 +176,13 @@ header, footer, .center, #logo, #Navbar, #Navbar>ul>li, .more-link, .page_navi {
 	position: fixed;
 	top: 0;
 	left: 0;
-	height: 3px;
-	width: 0;
-	background-color: #d0e4f6;
-	box-shadow: 0 0 12px rgba(208, 228, 246, 1);
+	height: 2px;
+	width: 1px;
+	background-color: #4cd2f7;
+	box-shadow: 0 0 15px rgba(76, 210, 247, 1.000);
 	opacity: 0;
 	transition: opacity .2s ease-in .1s;
+	z-index: 1000;
 }
 #loadingbar.warn {
 	box-shadow: 0 0 12px rgba(240, 168, 40, 1.000) !important;
@@ -225,7 +232,9 @@ header .centerbox {padding: 10em 0;}
 	max-height: 100%;
 }
 #list-box h3 {
-	margin: .5em 0;
+	margin: .2em 0;
+	padding: .3em 0;
+	/*border-color: #ccc;*/
 }
 #list-box li {
 	margin-bottom: 14px;
@@ -328,12 +337,12 @@ header .centerbox {padding: 10em 0;}
 	min-height: 540px;
 	padding: 1em 0;
 	margin: 7em 0;
-	transition: height .2s ease-in .1s;
+	transition: height .2s ease-in .1s, opacity .2s ease-in .1s;
 
 }
 #Main>.centerbox {
 	padding: 0 4px;
-	transition: height .2s ease-in .1s;
+	transition: height .2s ease-in .1s, opacity .2s ease-in .1s;
 }
 #Main>.centerbox .warn {
 	padding: 2em .2em;
