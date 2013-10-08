@@ -16,7 +16,7 @@ var list = [
         "LoadID": "html_reference"
     },
     {
-        "title": "x",
-        "LoadID": "html_x"
+        "title": "总结",
+        "LoadID": "summary"
     }
 ];

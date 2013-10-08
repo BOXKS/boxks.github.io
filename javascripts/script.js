@@ -5,7 +5,4 @@ jQuery(document).ready(function($) {
 	$('#btc>span').click(function() {
 		$("#btc>ul").toggleClass('block');
 	});
-	$("img").lazyload({
-	    effect : "fadeIn"
-	});
 });

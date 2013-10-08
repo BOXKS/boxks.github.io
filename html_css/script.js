@@ -20,12 +20,12 @@ jQuery(document).ready(function($) {
     };
 
     function errorText () {
-        $('body').append('<div id="warn" class="center"><div><div class="e-mark"></div><br />網絡連接有誤，無法載入內容！</div></div>');
+        $('body').append('<div id="warn" class="center"><div><div class="e-mark"></div><br />網路連接有誤，無法載入內容！</div></div>');
         $('#warn').hide();
         $('#warn').fadeIn("1000");
     }
 
-    function LoadData(LoadPage) {   
+    function LoadData(LoadPage,go) {   
         //载入页面内容的函数
         if ($('#warn').length > 0) {
             //  判断之前提示框是否存在
@@ -60,6 +60,11 @@ jQuery(document).ready(function($) {
                 for (i = 0; i < list.length; i++) {
                     if (list[i].LoadID===LoadPage) {
                         $('title').html(list[i].title+' - 制作一个简单的网页'); // 遍历 json 设置对应标题
+                        if (go) {
+                            // 判断 go 的值是否为空，如果不为空就修改 URL
+                            title = list[i].title;  //获取上面 json 对应的标题
+                            window.history.pushState(null, title, "?"+LoadPage);  //修改 url
+                        };
                         break;  //终止循环
                     };
                 };
@@ -123,6 +128,16 @@ jQuery(document).ready(function($) {
         });
     }
 
+    /*  判断 url 载入内容，有下面的 window.addEventListener 就不需要这里了!
+    *   但是 Firefox 和 IE 不能直接用 window.addEventListener 载入内容所以判断一下浏览器。
+    *   navigator.userAgent.match("MSIE")||navigator.userAgent.match("Firefox")
+    */
+    if (navigator.userAgent.match("MSIE")||navigator.userAgent.match("Firefox")) {
+        if (PID) {
+            LoadData(LID);
+        };
+    };
+
     // 菜单操作
     $('#list').on("click", "#list-button", function() { 
         // #list 中的 #list-button 点击
@@ -133,14 +148,11 @@ jQuery(document).ready(function($) {
     	var href = $(this).attr("href");   //获取a标签 URL
     	var PageID = href.substring(href.lastIndexOf("?"));    // 获取 URL 问号之后的字符
     	var LoadID = PageID.substr(1); //截取前面的问号
-        var listID = eval($(this).data('listid'));
     	if (PageID) {  
             //如果 PageID 存在运行下面的内容
             if (LoadID!=LID) {  
                 //判断点击连接是否当前页面，不是的话就载入内容
-        		LoadData(LoadID); //载入页面内容
-                title = list[listID].title;  //获取上面 json 对应的标题
-                window.history.pushState(null, title, "?"+LoadID);  //修改 url
+        		LoadData(LoadID,'go'); //载入页面内容，后面的 'go' 告诉函数这个是点击向前的操作。
             };
             return false; //阻止a标签跳转
     	};
@@ -148,18 +160,10 @@ jQuery(document).ready(function($) {
 
     // 提示框
     $('body').on("click", "#warn", function() { 
-        // $(this).detach();
         $(this).fadeOut("1000",function(){
             $(this).detach();   //先淡出再删除提示框
         });
     });
-
-    /*  判断 url 载入内容，有下面的 window.addEventListener 就不需要这里了!
-    *   但是 Firefox 不能直接用 window.addEventListener 载入内容所以判断一下浏览器。
-    */
-    if (document.getBoxObjectFor&&PID) {
-        LoadData(LID);
-    };
     
 	// 浏览器前进后退按钮
 	window.addEventListener('popstate', function(e){   

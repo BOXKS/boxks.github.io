@@ -270,7 +270,7 @@ header .centerbox {padding: 10em 0;}
 	width: 240px;
 	top: 0;
 	right: -240px;
-	background: #f3f4f6;
+	background: #e9ecf2;
 	z-index: 999;
 }
 #list-box{
@@ -279,8 +279,9 @@ header .centerbox {padding: 10em 0;}
 	max-height: 100%;
 }
 #list-box h3 {
-	margin: .2em 0;
-	padding: .3em 0;
+	margin: 0;
+	padding: .5em 0;
+	background: #f5f7f8;
 	/*border-color: #ccc;*/
 }
 #list-box li {
@@ -311,7 +312,7 @@ header .centerbox {padding: 10em 0;}
 	left: -40px;
 	width: 40px;
 	height: 40px;
-	background: url(../images/list.svg) #f3f4f6 no-repeat center center;
+	background: url(../images/list.svg) #f5f7f8 no-repeat center center;
 	background-size: 20px 20px;
 	border-radius: 7px 0 0 7px;
 	cursor: pointer;
@@ -418,52 +419,57 @@ article>section>h3 {
 footer {
  	padding: 20px 0;
  	border-width:0;
+ 	background: #f5f7f8; 
+ 	color: #768690;
 }
 footer .centerbox {text-align: center;}
-footer #donate {display: inline-block;}
-footer #donate li {float: left;margin: 10px;}
-#pp input[type="submit"] {
-	font-size: 14px;
-	padding: 2px 14px;
-	color: #103867;
-	font-weight: 700;
-	text-shadow: 0 1px 0 rgba(255,255,255,.2);
-	border: 1px solid #fec68a;
-	border-top-color: #ffd6a3;
-	border-bottom-color: #f4b879;
-	border-radius: 12px;
-	box-shadow: 0 1px 5px rgba(0,0,0,.3),inset 0 0 3px rgba(255,255,255,.5);
-	background-image: -webkit-linear-gradient(top, rgba(255, 225, 152,1), rgba(251, 193, 55,1)42%, rgba(255, 180, 0,1)44%, rgba(255, 180, 0,1)80%, rgba(253, 213, 117,1));
-	background-image: -moz-linear-gradient(top, rgba(255, 225, 152,1), rgba(251, 193, 55,1)42%, rgba(255, 180, 0,1)44%, rgba(255, 180, 0,1)80%, rgba(253, 213, 117,1));
-	background-image: -o-linear-gradient(top, rgba(255, 225, 152,1), rgba(251, 193, 55,1)42%, rgba(255, 180, 0,1)44%, rgba(255, 180, 0,1)80%, rgba(253, 213, 117,1));
-	background-image: -ms-linear-gradient(top, rgba(255, 225, 152,1), rgba(251, 193, 55,1)42%, rgba(255, 180, 0,1)44%, rgba(255, 180, 0,1)80%, rgba(253, 213, 117,1));
-	background-image: linear-gradient(top, rgba(255, 225, 152,1), rgba(251, 193, 55,1)42%, rgba(255, 180, 0,1)44%, rgba(255, 180, 0,1)80%, rgba(253, 213, 117,1));
+footer #donate {
+	display: inline-block;
+	margin-bottom: 2em;
+}
+footer #donate>li {
+	width: 100%;
+	margin: 2em 0;
+	height: 40px;
+}
+#pp form {
+	line-height: 0;
+	height: 40px;
+}
+#pp img {
+	position: absolute;
+	line-height: 0;
+}
+#pp input[type="submit"], #ali a, #btc>span {
+	display: inline-block;
+	margin: 0 auto;
+	padding: 0;
+	width: 240px;
+	height: 40px;
+	line-height: 15em;
+	overflow: hidden;
+	border-width: 0;
+	border-radius: 20px;
+	cursor: pointer;
+	background: #ebeef0 url(../images/paypal.svg) no-repeat center center;
+	background-size: 30%;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+#pp input[type="submit"]:hover, #ali a:hover, #btc>span:hover {
+	background-color: #dce2e6;
 }
 #ali a {
-	font-size: 14px;
-	padding: 3px 20px;
-	color: #fff;
-	text-shadow: 0 1px 2px rgba(0,0,0,.2);
-	border: 1px solid rgba(253, 123, 35, 1);
-	border-radius: 6px;
-	box-shadow: 0 1px 5px rgba(0,0,0,.3),inset 0 0 2px rgba(255,255,255,.7);
-	background-image: -webkit-linear-gradient(top, rgba(253, 170, 46, 1), rgba(252, 125, 36, 1));
-	background-image: -moz-linear-gradient(top, rgba(253, 170, 46, 1), rgba(252, 125, 36, 1));
-	background-image: -o-linear-gradient(top, rgba(253, 170, 46, 1), rgba(252, 125, 36, 1));
-	background-image: -ms-linear-gradient(top, rgba(253, 170, 46, 1), rgba(252, 125, 36, 1));
-	background-image: linear-gradient(top, rgba(253, 170, 46, 1), rgba(252, 125, 36, 1));
+	background-image: url(../images/alipay.svg);
 }
 #btc {
+	height: 40px;
 	position: relative;
 }
-body #btc>span {
-	padding: 3px 20px;
-	color: #fff;
-	/*text-shadow: 0 1px 2px rgba(0,0,0,.2);*/
-	/*border: 1px solid rgba(253, 123, 35, 1);*/
-	border-radius: 6px;
-	background: #f79325;
-	cursor: pointer;
+#btc>span {
+	background-image: url(../images/bitcoin.svg);
 }
 body #btc ul, body #btc li {
 	padding: 0;
@@ -479,7 +485,7 @@ body #btc ul {
 	width: 260px;
 	left: 50%;
 	margin-left: -135px;
-	bottom: 34px;
+	bottom: 57px;
 	box-shadow: 0 2px 10px rgba(0,0,0,.5);
 }
 body #btc>ul>li {
@@ -555,6 +561,13 @@ body #btc .block {
 	}
 	footer {
 		position: static;
+	}
+	footer section.centerbox {
+		text-align: center;
+	}
+	footer #donate>li {
+		width: auto;
+		padding: 1em;
 	}
 	#warn>div {
 		padding: 1em 0.2em;

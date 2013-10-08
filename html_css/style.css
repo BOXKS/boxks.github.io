@@ -1,9 +1,6 @@
 section.centerbox {
 	padding: 4em 4px;
 }
-footer .centerbox {
-	text-align: left !important;
-}
 @media(max-width:768px) {
 }
 /*iPhone*/
