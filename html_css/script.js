@@ -37,7 +37,7 @@ jQuery(document).ready(function($) {
         $.ajax({
             url: edition+"/"+LoadPage+".html",  //设置载入文件路径
             cache: false,
-            type: "post",
+            // type: "post",
             beforeSend: function(){
                 //发送 Ajax 之前运行
                 loadingbar.width(0);    //初始化进度条长度为0
@@ -111,7 +111,7 @@ jQuery(document).ready(function($) {
         $.ajax({
             url: edition+"/foreword.html",  //设置载入文件路径
             cache: false,
-            type: "post",
+            // type: "post",
             success: function(page){
                 //接受返回数据成功之后运行
                 LID = "foreword";   //设置默认页面状态
