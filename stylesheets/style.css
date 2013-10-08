@@ -172,14 +172,15 @@ header, footer, .center, #logo, #Navbar, #Navbar>ul>li, .more-link, .page_navi {
 .border-t-d {
 	border-top: 1px dotted #ddd;
 }
+/*ajax 进度条*/
 #loadingbar {
 	position: fixed;
 	top: 0;
 	left: 0;
 	height: 2px;
 	width: 1px;
-	background-color: #4cd2f7;
-	box-shadow: 0 0 15px rgba(76, 210, 247, 1.000);
+	background-color: #64c4ee;
+	box-shadow: 0 0 10px rgba(100, 196, 238, 1.000);
 	opacity: 0;
 	transition: opacity .2s ease-in .1s;
 	z-index: 1000;
@@ -188,6 +189,52 @@ header, footer, .center, #logo, #Navbar, #Navbar>ul>li, .more-link, .page_navi {
 	box-shadow: 0 0 12px rgba(240, 168, 40, 1.000) !important;
 	background-color: #f0a828;
 }
+/*ajax 错误提示框*/
+#warn {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(255,255,255,0.9);
+	cursor: pointer;
+}
+#warn>div {
+	display: inline-block;
+	padding: 2em 1.5em;
+	margin: 10% 0;
+	border: 1px solid #f0b435;
+	border-radius: 17px;
+	background: url(../images/sargaBlanco.svg) repeat-x left 5%, url(../images/sargaBlanco.svg) repeat-x left 95%;
+	background-color: #f8bb37;
+	background-size: 5%;
+	color: #fff;
+	font-size: 2.6em;
+	font-weight: normal;
+	line-height: 1.777em;
+	box-shadow: 0 0 0 5px rgba(248, 187, 55, .2), 0 2px 7px rgba(0,0,0,.2), inset 0 0 2px rgba(255,255,255,0.7), inset 0 -10px 30px rgba(0,0,0,0.01) !important;
+}
+#warn .e-mark {
+	position: relative;
+	background: url(../images/error.svg) no-repeat center center;
+	background-size: contain;
+	width: 180px;
+	height: 180px;
+	display: inline-block;
+	z-index: 2;
+}
+#warn .e-mark::before {
+	content: "";
+	z-index: -1;
+	width: 120px;
+	height: 4px;
+	bottom: 10px;
+	left: 50%;
+	margin-left: -60px;
+	border: 70px;
+	box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+}
+/*ajax 错误提示框 end*/
 a, input, select, blockquote, .typekit-badge, #backTop, #SearchBox, .gsc-cursor-page, #list, .trs, span.sup  {
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
@@ -337,46 +384,18 @@ header .centerbox {padding: 10em 0;}
 	min-height: 540px;
 	padding: 1em 0;
 	margin: 7em 0;
-	transition: height .2s ease-in .1s, opacity .2s ease-in .1s;
+	-webkit-transition: height .2s ease-in .1s;
+	-moz-transition: height .2s ease-in .1s;
+	-o-transition: height .2s ease-in .1s;
+	transition: height .2s ease-in .1s;
 
 }
 #Main>.centerbox {
 	padding: 0 4px;
+	-webkit-transition: height .2s ease-in .1s, opacity .2s ease-in .1s;
+	-moz-transition: height .2s ease-in .1s, opacity .2s ease-in .1s;
+	-o-transition: height .2s ease-in .1s, opacity .2s ease-in .1s;
 	transition: height .2s ease-in .1s, opacity .2s ease-in .1s;
-}
-#Main>.centerbox .warn {
-	padding: 2em .2em;
-	margin: 1em 0;
-	border: 1px solid #f0b435;
-	border-radius: 17px;
-	background: url(../images/sargaBlanco.svg) repeat-x left 5%, url(../images/sargaBlanco.svg) repeat-x left 95%;
-	background-color: #f8bb37;
-	background-size: 5%;
-	color: #fff;
-	font-size: 2.6em;
-	font-weight: normal;
-	line-height: 1.777em;
-	box-shadow: 0 0 0 5px rgba(248, 187, 55, .2), 0 2px 7px rgba(0,0,0,.2), inset 0 0 2px rgba(255,255,255,0.7), inset 0 -10px 30px rgba(0,0,0,0.01) !important;
-}
-#Main>.centerbox .warn .e-mark {
-	position: relative;
-	background: url(../images/error.svg) no-repeat center center;
-	background-size: contain;
-	width: 180px;
-	height: 180px;
-	display: inline-block;
-	z-index: 2;
-}
-#Main>.centerbox .warn .e-mark::before {
-	content: "";
-	z-index: -1;
-	width: 120px;
-	height: 4px;
-	bottom: 10px;
-	left: 50%;
-	margin-left: -60px;
-	border: 70px;
-	box-shadow: 0 20px 30px rgba(0,0,0,0.3);
 }
 /*html css*/
 #html-css {
@@ -536,6 +555,9 @@ body #btc .block {
 	}
 	footer {
 		position: static;
+	}
+	#warn>div {
+		padding: 1em 0.2em;
 	}
 }
 /*iPhone320*/
