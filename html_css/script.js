@@ -1,11 +1,14 @@
+// var CURL = document.referrer;   //获取来路 URL
+// var Chref = CURL.substr(0,CURL.lastIndexOf("/"))+'/';  //截取来路的目录
 var URL = window.location.href; //获取主域名
 // var PATH = window.location.pathname;    //获取文件夹
 var PID = window.location.search;   //获取问号之后的部分
-var href = URL.substr(0,URL.lastIndexOf("/"));  //截取项目的目录
+var href = URL.substr(0,URL.lastIndexOf("/"))+'/';  //截取项目的目录
 var LID = PID.substr(1);    //截取问号
+var WebTitle = $('title').html();   //获取主页标题
 var edition = "0_0_1";  //设置版本号（对应文件夹）
 
-jQuery(document).ready(function($) {    
+jQuery(document).ready(function($) {   
     //当页面框架载入完成后运行打括号内的代码
     var MainBox = $('#Main>.centerbox');    // 设置主要内容的容器
     var loadingbar = $("#loadingbar");  //进度条
@@ -15,7 +18,7 @@ jQuery(document).ready(function($) {
         //如果载入的内容并非空白运行下面代码
         for (i = 0; i < list.length; i++) { 
             //设置始起的值是 0，每循环一次加1，当循环次数等于 list 中数组数量相同时候停止循环（因为 i 第一次为0，所以 i 最大值等于数组的数量减去1）
-            $('#list>#list-box>ol').append('<li><a id="'+list[i].LoadID+'" data-listid="'+i+'" href="'+href+'/?'+list[i].LoadID+'">'+list[i].title+'</a></li>');    //循环输出 li 菜单
+            $('#list>#list-box>ol').append('<li><a id="'+list[i].LoadID+'" data-listid="'+i+'" href="'+href+'?'+list[i].LoadID+'">'+list[i].title+'</a></li>');    //循环输出 li 菜单
         };
     };
 
@@ -25,7 +28,7 @@ jQuery(document).ready(function($) {
         $('#warn').fadeIn("1000");
     }
 
-    function LoadData(LoadPage,go) {   
+    function LoadData(LoadPage,go,Home) {   
         //载入页面内容的函数
         if ($('#warn').length > 0) {
             //  判断之前提示框是否存在
@@ -34,44 +37,46 @@ jQuery(document).ready(function($) {
             });
         };
 
+        if (Home) {
+            //如果是首页则显示列表的第一个内容
+            LoadPage = list[0].LoadID;
+        };
+
         $.ajax({
             url: edition+"/"+LoadPage+".html",  //设置载入文件路径
             cache: false,
             // type: "post",
             beforeSend: function(){
                 //发送 Ajax 之前运行
-                loadingbar.width(0);    //初始化进度条长度为0
                 loadingbar.addClass('op1'); //显示进度条
-                loadingbar.animate({
-                    width: '30%'
-                }, "1000"); //修改进度条动画，设置长度为30%
-                loadingbar.removeClass('warn'); //保证进度条不是橘色
             },
 
             success: function(page){
                 //接受返回数据成功之后运行
                 LID = LoadPage;   //更新固定值
 
-                $("html,body").animate({scrollTop: $("#Main").offset().top}, 500);  //跳转到内容顶部
-
                 $('#list-box>ol>li>a').removeClass('current-cat');  // 清除目录的状态
                 $('#'+LID).addClass('current-cat'); //给当前目录中的当前条目添加状态
 
-                for (i = 0; i < list.length; i++) {
-                    if (list[i].LoadID===LoadPage) {
-                        $('title').html(list[i].title+' - 制作一个简单的网页'); // 遍历 json 设置对应标题
-                        if (go) {
-                            // 判断 go 的值是否为空，如果不为空就修改 URL
-                            title = list[i].title;  //获取上面 json 对应的标题
-                            window.history.pushState(null, title, "?"+LoadPage);  //修改 url
+                if (!Home) {
+                    //判断是否首页，如果不是首页则跳转到内容顶部
+                    $("html,body").animate({scrollTop: $("#Main").offset().top}, 500);  //跳转到内容顶部
+
+                    for (i = 0; i < list.length; i++) {
+                        if (list[i].LoadID===LoadPage) {
+                            $('title').html(list[i].title+' - '+WebTitle); // 遍历 json 设置对应标题
+                            if (go) {
+                                // 判断 go 的值是否为空，如果不为空就修改 URL
+                                title = list[i].title;  //获取上面 json 对应的标题
+                                window.history.pushState(null, title, "?"+LoadPage);  //修改 url
+                            };
+                            break;  //终止循环
                         };
-                        break;  //终止循环
                     };
+                } else if($('title').html!=WebTitle) {
+                    $('title').html('制作一个简单的网页');
                 };
 
-                loadingbar.animate({
-                    width: '100%'
-                }, "2000"); //改变进度条长度
                 MainBox.css("opacity","0");   //替换内容前先隐藏容器
                 setTimeout(function(){
                     //延时执行内容替换和显示
@@ -85,9 +90,7 @@ jQuery(document).ready(function($) {
 
             error: function(){
                 //载入内容失败时候运行
-                loadingbar.animate({
-                    width: '100%'
-                }, "2000");
+
                 loadingbar.addClass('warn');    //进度条变为橘色
                 setTimeout(function(){
                     errorText (); // 弹出错误提示筐
@@ -95,36 +98,10 @@ jQuery(document).ready(function($) {
                 setTimeout(function(){
                     $('#loadingbar').removeClass('op1') //隐藏进度条
                 },1300);
-            }
-        });
-    }
-
-    function HomePage () {
-        //载入页面内容的函数
-        if ($('#warn').length > 0) {
-            //  判断之前提示框是否存在
-            $('#warn').fadeOut("1000",function(){
-                $('#warn').detach();   //先淡出再删除提示框
-            });
-        };
-
-        $.ajax({
-            url: edition+"/foreword.html",  //设置载入文件路径
-            cache: false,
-            // type: "post",
-            success: function(page){
-                //接受返回数据成功之后运行
-                LID = "foreword";   //设置默认页面状态
-                $('#list-box>ol>li>a').removeClass('current-cat');  //清除其他页面状态。
-                $('#foreword').addClass('current-cat'); //添加当前页面状态。
-
-                MainBox.css("opacity","0");   //替换内容前先隐藏容器
                 setTimeout(function(){
-                    //延时执行内容替换和显示
-                    MainBox.html(page); // 替换主内容
-                    MainBox.css('opacity','1')  //显示主内容
-                },700);
-            },
+                    loadingbar.removeClass('warn'); //保证进度条不是橘色
+                },3000);
+            }
         });
     }
 
@@ -135,6 +112,8 @@ jQuery(document).ready(function($) {
     if (navigator.userAgent.match("MSIE")||navigator.userAgent.match("Firefox")) {
         if (PID) {
             LoadData(LID);
+        }else {
+            LoadData('','','home');
         };
     };
 
@@ -174,7 +153,7 @@ jQuery(document).ready(function($) {
             if (PID) {
                 LoadData(LID);
             } else{
-                HomePage ();
+                LoadData('','','home');
             };
 		}
 	}, false);				
