@@ -186,15 +186,34 @@ header, footer, .center, #logo, #Navbar, #Navbar>ul>li, .more-link, .page_navi {
 	opacity: 0;
 	transition: opacity .2s ease-in .1s, background-image .3s ease-in .1s;
 	z-index: 1000;
-}
-#loadingbar.op1 {
 	-webkit-animation: loadingbar .3s steps(8) infinite;
+	-moz-animation: loadingbar .3s steps(8) infinite;
+	-o-animation: loadingbar .3s steps(8) infinite;
+	animation: loadingbar .3s steps(8) infinite;
 }
+/*#loadingbar.op1 {
+	-webkit-animation: loadingbar .3s steps(8) infinite;
+	-moz-animation: loadingbar .3s steps(8) infinite;
+	-o-animation: loadingbar .3s steps(8) infinite;
+	animation: loadingbar .3s steps(8) infinite;
+}*/
 #loadingbar.warn {
 	background-color: #f0a828 !important;
 	box-shadow: 0 0 12px rgba(240, 168, 40, 1.000) !important;
 }
 
+@keyframes loadingbar {
+    from { background-position:0 0; }
+    to { background-position: -10px 0; }
+}
+@-o-keyframes loadingbar {
+    from { background-position:0 0; }
+    to { background-position: -10px 0; }
+}
+@-moz-keyframes loadingbar {
+    from { background-position:0 0; }
+    to { background-position: -10px 0; }
+}
 @-webkit-keyframes loadingbar {
     from { background-position:0 0; }
     to { background-position: -10px 0; }
