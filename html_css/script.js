@@ -82,10 +82,8 @@ jQuery(document).ready(function($) {
                     //延时执行内容替换和显示
                     MainBox.html(page); // 替换主内容
                     MainBox.css('opacity','1')  //显示主内容
-                },700);
-                setTimeout(function(){
                     $('#loadingbar').removeClass('op1')
-                },1300);
+                },700);
             },
 
             error: function(){
@@ -94,10 +92,8 @@ jQuery(document).ready(function($) {
                 loadingbar.addClass('warn');    //进度条变为橘色
                 setTimeout(function(){
                     errorText (); // 弹出错误提示筐
-                },700);
-                setTimeout(function(){
                     $('#loadingbar').removeClass('op1') //隐藏进度条
-                },1300);
+                },700);
                 setTimeout(function(){
                     loadingbar.removeClass('warn'); //保证进度条不是橘色
                 },3000);
