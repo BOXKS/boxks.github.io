@@ -299,10 +299,11 @@ header .centerbox {padding: 10em 0;}
 	height: 100%;
 	width: 240px;
 	top: 0;
-	right: -240px;
+	right: 0;
 	background: #e9ecf2;
 	z-index: 999;
 }
+#list.hidden {right: -240px;}
 #list-box{
 	overflow: hidden;
 	width: 100%;

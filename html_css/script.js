@@ -113,10 +113,15 @@ jQuery(document).ready(function($) {
         };
     };
 
+
+    setTimeout(function(){
+        $("#list").addClass('hidden'); //隐藏菜单
+    },1500);
+
     // 菜单操作
     $('#list').on("click", "#list-button", function() { 
         // #list 中的 #list-button 点击
-        $("#list").toggleClass('right0');   //点击收缩菜单
+        $("#list").toggleClass('hidden');   //点击收缩菜单
     });
     $('#list-box>ol').on("click", "a", function(){  
         //使用 on 是可以让 jQuery 后来载入的内容也可以支持点击动作
