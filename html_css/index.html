@@ -2,7 +2,18 @@
 <html lang="zh">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> -->
+	<!-- Web app startup img -->
+	<link rel="apple-touch-startup-image" href="../images/Default.png" media="(device-width: 320px)" sizes="320x640" />
+	<link rel="apple-touch-startup-image" href="../images/Default@2x.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" sizes="640x920" />
+	<link rel="apple-touch-startup-image" href="../images/Default-568h@2x.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" sizes="640x1096" />
+	<link href="../images/DefaultIpadPortrait.png" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image" />
+	<link href="../images/DefaultIpadPortrait@2x.png" media="(device-width: 768px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+	<link href="../images/DefaultIpadLandscape.png" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image" />
+	<link href="../images/DefaultIpadLandscape@2x.png" media="(device-width: 768px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+	<!-- Web app startup img end -->
 	<title>制作一个简单的网页</title>
 	<link rel="shortcut icon" href="../favicon.ico">
 	<link rel="apple-touch-icon-precomposed" href="../apple-touch-icon-precomposed.png" />
@@ -14,7 +25,7 @@
 	<!--[if lte IE 9]><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><![endif]-->
 	<script type="text/javascript" charset="utf-8" src="http://kaiyuan.github.io/footnotes.js/footnotes.js"></script>
 	<script src="../javascripts/script.js"></script>
-	<script src="list.js"></script>
+	<script src="list.js"></script>	<!-- 加载目录列表 -->
 	<script src="script.js"></script>
 </head>
 <body>
@@ -24,8 +35,12 @@
 		<section class="centerbox relative">
 			<h1>制作一个<br>简单的网页</h1>
 			<p>通俗易懂的 HTML 和 CSS 教程</p>
-			<div class="download-box"><span href="#" class="ipad-button sup" data-text="即将推出">iBooks</span> <a href="" class="pdf-button">PDF</a></div>
-			<div id="logo" class="absolute logo"><a href="../"><img src="../images/BOXKS_logo_w.svg" alt="Boxks" width="32" height="32"> <sup>&#8482;</sup></a></div>
+			<div class="download-box">
+				<span href="#" class="ipad-button sup" data-text="即将推出适用于 iPad 的电子书">iBooks</span> <a href="#" class="pdf-button sup" data-text="即将推出 PDF 电子书" >PDF</a> <a href="https://github.com/boxks/boxks.github.io" class="git-button sup" data-text="所有内容都存放在 Github，任何人都可以下载。" >Github</a>
+			</div>
+			<div id="logo" class="absolute logo">
+				<a href="../"><img src="../images/BOXKS_logo_w.svg" alt="Boxks" width="32" height="32"> <sup>&#8482;</sup></a>
+			</div>
 		</section>
 	</header>
 	<article id="main" class="left100">

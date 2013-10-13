@@ -21,6 +21,25 @@ jQuery(document).ready(function($) {
             $('#list>#list-box>ol').append('<li><a id="'+list[i].LoadID+'" data-listid="'+i+'" href="'+href+'?'+list[i].LoadID+'">'+list[i].title+'</a></li>');    //循环输出 li 菜单
         };
     };
+    function retinaImg (ajaxBox) {
+        if (ajaxBox) {
+            var Img = $(ajaxBox+' img');
+        } else{
+            var Img = $('img');
+        };
+        if (window.devicePixelRatio && window.devicePixelRatio > 1) {
+            //判断是否 Retina 屏幕
+            Img.attr('',function () {
+                var retina = $(this).data('retina');
+                var imgSrc = $(this).attr('src');
+                if (retina && imgSrc != retina) {
+                    // 如果需要 Retina src 则替换
+                    $(this).attr("src",retina);
+                };
+            });
+        };
+    };
+    retinaImg('body');
 
     function errorText () {
         $('body').append('<div id="warn" class="center"><div><div class="e-mark"></div><br />網路連接有誤，無法載入內容！</div></div>');
@@ -60,8 +79,6 @@ jQuery(document).ready(function($) {
 
                 if (!Home) {
                     //判断是否首页，如果不是首页则跳转到内容顶部
-                    $("html,body").animate({scrollTop: $("#Main").offset().top}, 500);  //跳转到内容顶部
-
                     for (i = 0; i < list.length; i++) {
                         if (list[i].LoadID===LoadPage) {
                             $('title').html(list[i].title+' - '+WebTitle); // 遍历 json 设置对应标题
@@ -69,6 +86,7 @@ jQuery(document).ready(function($) {
                                 // 判断 go 的值是否为空，如果不为空就修改 URL
                                 title = list[i].title;  //获取上面 json 对应的标题
                                 window.history.pushState(null, title, "?"+LoadPage);  //修改 url
+                                $("html,body").animate({scrollTop: $("#Main").offset().top}, 500);  //跳转到内容顶部
                             };
                             break;  //终止循环
                         };
@@ -81,6 +99,7 @@ jQuery(document).ready(function($) {
                 setTimeout(function(){
                     //延时执行内容替换和显示
                     MainBox.html(page); // 替换主内容
+                    retinaImg('#Main>.centerbox');
                     MainBox.css('opacity','1')  //显示主内容
                     $('#loadingbar').removeClass('op1')
                 },700);
