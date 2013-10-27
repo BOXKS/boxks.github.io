@@ -18,7 +18,7 @@ html, body {
 body {
 	font-family: "museo-slab", "Helvetica Neue", Ubuntu, "WenQuanYi Micro Hei", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "WenQuanYi Zen Hei", "WenQuanYi Zen Hei", "Apple LiGothic Medium", "SimHei", "ST Heiti", "WenQuanYi Zen Hei Sharp", Arial, sans-serif;
 	-webkit-font-smoothing:antialiased;
-	line-height: 2em;
+	line-height: 1.7em;
 	text-shadow: 0 0 1px rgba(255,255,255,0.1);
 	background: #fff;
 }
@@ -309,7 +309,7 @@ header .centerbox {padding: 10em 0;}
 	width: 241px;
 	top: 0;
 	left: 0;
-	z-index: 999;
+	z-index: 900;
 }
 #list.hidden {left: -240px;}
 #list-box{
@@ -318,7 +318,8 @@ header .centerbox {padding: 10em 0;}
 	overflow-x: hidden;
 	width: 240px;
 	height: 100%;
-	background: #e1e4eb;
+	background: #363941;
+	color: #ccc;
 }
 #list-box h3 {
 	/*position: absolute;*/
@@ -326,30 +327,46 @@ header .centerbox {padding: 10em 0;}
 	padding: .5em 0;
 	width: 100%;
 	background: #ebeef0;
+	color: #000;
+}
+#list-box a {
+	color: #ccc;
+}
+#list-box a:hover {
+	color: #fff;
+	box-shadow: 0 0 0;
+	background: none;
 }
 #list-box ol {
-	/*margin-top: 9em;*/
 	padding-left: 35px;
 	padding-right: 10px;
 }
 #list-box li {
-	margin-bottom: 14px;
-	height: 28px;
-	line-height: 28px;
+	/*margin-bottom: 14px;*/
+	height: 40px;
+	line-height: 40px;
 }
 #list-box li .current-cat {
-	color: #2C769E;
+	color: #fff;
 	position: relative;
 }
 #list-box li .current-cat::before {
 	content: "";
-	width: 5px;
-	height: 20px;
-	background: #8ac2e6;
-	top: 50%;
-	margin-top: -10px;
-	left: 200px;
+	width: 240px;
+	height: 40px;
+	left: -35px;
+	background: rgba(255,255,255,0.2);
+	top: 0;
 }
+/*#list-box li .current-cat::after {
+	content: "";
+	width: 5px;
+	height: 28px;
+	background: #606573;
+	top: 50%;
+	margin-top: -14px;
+	left: 200px;
+}*/
 #list-box li a {
 	display: block;
 }
@@ -426,7 +443,8 @@ header .centerbox {padding: 10em 0;}
 	background-image: url(../images/octocat_w.svg) !important;
 }
 .download-box {
-	margin-top: 4.5em;
+	margin-top: 3.5em;
+	line-height: 3.5em;
 }
 .Front-cover .logo {
 	height: 32px;
@@ -450,10 +468,11 @@ header .centerbox {padding: 10em 0;}
 }
 #Main>.centerbox {
 	padding: 0 4px;
-	-webkit-transition: height .2s ease-in .1s, opacity .2s ease-in .1s;
-	-moz-transition: height .2s ease-in .1s, opacity .2s ease-in .1s;
-	-o-transition: height .2s ease-in .1s, opacity .2s ease-in .1s;
-	transition: height .2s ease-in .1s, opacity .2s ease-in .1s;
+	line-height: 2em;
+	-webkit-transition: height .2s ease-in .1s, opacity .1s ease-in .1s;
+	-moz-transition: height .2s ease-in .1s, opacity .1s ease-in .1s;
+	-o-transition: height .2s ease-in .1s, opacity .1s ease-in .1s;
+	transition: height .2s ease-in .1s, opacity .1s ease-in .1s;
 }
 #Main>section.centerbox>h2 {
 	padding: 0.5em 0;

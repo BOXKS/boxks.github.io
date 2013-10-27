@@ -102,7 +102,7 @@ jQuery(document).ready(function($) {
                     retinaImg('#Main>.centerbox');
                     MainBox.css('opacity','1')  //显示主内容
                     $('#loadingbar').removeClass('op1')
-                },700);
+                },300);
             },
 
             error: function(){
